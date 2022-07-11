@@ -41,6 +41,7 @@ export const createOrGetUser = async (response : any, addUser : any)=>{
 
   addUser(user); // and now when we reload the page user still be there
   
-  await axios.post(`${BASE_URL}/api/auth`, user)
+  // await axios.post(`${BASE_URL}/api/auth`, user)
+  await axios.post(`https://do-tok-app.vercel.app/api/auth`, user)
   
 }
