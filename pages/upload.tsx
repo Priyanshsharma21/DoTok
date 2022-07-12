@@ -8,6 +8,7 @@ import useAuthStore from '../store/authStore';
 import { client } from '../utils/client';
 import { topics } from '../utils/constants';
 import { BASE_URL } from '../utils';
+import { Spinner2 } from '../components/Spinner';
 
 
 const Upload = () => {
@@ -95,7 +96,7 @@ const Upload = () => {
                 <div className=' border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100'>
                     {isLoading ? (
                         <p className='text-center text-3xl text-red-400 font-semibold'>
-                            Uploading...
+                            <Spinner2 message='Uploading...' />
                         </p>
                     ) : (
                         <div>

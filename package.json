@@ -12,6 +12,7 @@
     "@react-oauth/google": "^0.2.6",
     "@sanity/client": "^3.3.0",
     "axios": "^0.27.2",
+    "framer-motion": "^6.4.3",
     "gapi-script": "^1.2.0",
     "jwt-decode": "^3.1.2",
     "next": "12.1.6",
@@ -20,6 +21,8 @@
     "react-google-login": "^5.2.2",
     "react-gradient-progress": "^1.0.3",
     "react-icons": "^4.3.1",
+    "react-loader-spinner": "^5.1.5",
+    "react-top-loading-bar": "^2.1.0",
     "uuidv4": "^6.2.13",
     "zustand": "^4.0.0-rc.1"
   },

@@ -1,9 +1,15 @@
 import React from 'react'
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
 
 const Contact = () => {
   return (
-    <div className='w-full'>
+    <motion.div 
+    whileInView={{ opacity: [0, 1] }}
+    transition={{ duration: 1 }}
+    >
+<div className='w-full'>
         <div className='flex-col gap-6 md:gap-10 mb-4 mt-5  w-full bg-gray-700 p-5 rounded-3xl'>
             
         <p className='text-7xl flex justify-center align-center font-semibold tracking-wide text-black-400 font-sans text-white'>
@@ -45,6 +51,8 @@ const Contact = () => {
                 
         </div>
     </div>
+    </motion.div>
+    
   )
 }
 

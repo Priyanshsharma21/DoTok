@@ -7,6 +7,7 @@ import VideoCard from '../../components/VideoCard';
 import NoResults from '../../components/NoResults';
 import { IUser, Video } from '../../types';
 import { BASE_URL } from '../../utils';
+import {motion} from 'framer-motion'
 
 interface IProps {
   data: {
@@ -34,7 +35,11 @@ const Profile = ({ data }: IProps) => {
   },[showUserVideos, userLikedVideos, userVideos])
 
   return (
-    <div className='w-full'>
+    <motion.div
+    whileInView={{ opacity: [0, 1] }}
+    transition={{ duration: 1 }}
+    >
+      <div className='w-full'>
     <div className='flex gap-6 md:gap-10 mb-4 bg-white w-full'>
       <div className='w-16 h-16 md:w-32 md:h-32'>
         {/* user profile section  */}
@@ -80,6 +85,7 @@ const Profile = ({ data }: IProps) => {
       </div>
     </div>
   </div>
+    </motion.div>
   )
 }
 

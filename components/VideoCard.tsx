@@ -6,6 +6,7 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import { BsPlay } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 import { Video } from './../types';
 
@@ -40,7 +41,12 @@ const VideoCard:NextPage<IProps> = ({post}) => {
   },[isVideoMuted])
   
   return (
-    <div  className='flex flex-col border-b-2 border-gray-200 pb-6'>
+    <motion.div
+    whileInView={{ opacity: [0, 1] }}
+    transition={{ duration: 0.5 }}
+    >
+     
+<div  className='flex flex-col border-b-2 border-gray-200 pb-6'>
       <div>
         <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
             {/* logo of user  */}
@@ -88,44 +94,60 @@ const VideoCard:NextPage<IProps> = ({post}) => {
         onMouseLeave={()=>setIsHover(false)}
          className='rounded-3xl app_video'>
             <Link href={`detail/${_id}`}>
-              <video
-              ref={videoRef} // its like doc.querySelector or getElementById and play pause on condition react make it simple
-              loop
-              src={video.asset.url}
-              className="snap_video lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
-               >
-              </video>
+              
+                <video
+                ref={videoRef} // its like doc.querySelector or getElementById and play pause on condition react make it simple
+                loop
+                src={video.asset.url}
+                className="snap_video lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
+                >
+                </video>
             </Link>
 
             {isHover && (
               <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3'>
                 {/* play  */}
                 {playing ? (
-                  <button onClick={onVideoPress}>
-                    <BsFillPauseFill className='text-black text-2xl lg:text-4xl'/>
-                  </button>
+                  <motion.button 
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }} 
+                  onClick={onVideoPress}>
+                    <BsFillPauseFill className='text-black text-2xl lg:text-4xl sm:text-white lg:text-black md:text-white'/>
+                  </motion.button>
                 ) : (
-                  <button onClick={onVideoPress}>
-                    <BsFillPlayFill className='text-black text-2xl lg:text-4xl' />
-                  </button>
+                  <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }} 
+                  onClick={onVideoPress}>
+                    <BsFillPlayFill className='text-black text-2xl lg:text-4xl sm:text-white lg:text-black md:text-white' />
+                  </motion.button>
                 )}
 
                 {/* mute  */}
 
                 {isVideoMuted ? (
-                  <button onClick={()=>setIsVideoMuted(false)}>
+                  <motion.button 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }} 
+                  onClick={()=>setIsVideoMuted(false)}>
                     <HiVolumeOff className='text-black text-2xl lg:text-4xl' />
-                  </button>
+                  </motion.button>
                 ) : (
-                  <button onClick={()=>setIsVideoMuted(true)}>
+                  <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }} 
+                  onClick={()=>setIsVideoMuted(true)}>
                     <HiVolumeUp className='text-black text-2xl lg:text-4xl' />
-                  </button>
+                  </motion.button>
                 )}
               </div>
             )}
         </div>
       </div>
     </div>
+    {/* </motion.button> */}
+    </motion.div>
+   
   )
 }
 

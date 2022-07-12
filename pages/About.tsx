@@ -1,9 +1,14 @@
 import React from 'react'
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div className='w-full'>
+    <motion.div
+    whileInView={{ opacity: [0, 1] }}
+    transition={{ duration: 1 }}
+    >
+<div className='w-full'>
         <div className='flex-col gap-6 md:gap-10 mb-4 mt-5 bg-white w-full'>
             <p className='text-7xl font-semibold tracking-wide text-black-400 font-sans'>
                 Hello There 👋
@@ -48,6 +53,8 @@ const About = () => {
                 </p>
         </div>
     </div>
+    </motion.div>
+    
   )
 }
 
