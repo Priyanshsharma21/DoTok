@@ -43,9 +43,6 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
   
   return (
     <motion.div
-    whileTap={{opacity : 0.9},{ transition : { ease: 'easeInOut' } }}
-    whileFocus={{scale:2}}
-    animate={{ y: 40 }}
     >
       <div  className='flex flex-col border-b-2 border-gray-200 pb-6 short_video'>
       <div className=''>

@@ -93,17 +93,15 @@ const VideoCard:NextPage<IProps> = ({post}) => {
         onMouseEnter={()=>setIsHover(true)}
         onMouseLeave={()=>setIsHover(false)}
          className='rounded-3xl app_video'>
-            <Link href={`detail/${_id}`}>
-              
-                <video
-                ref={videoRef} // its like doc.querySelector or getElementById and play pause on condition react make it simple
-                loop
-                src={video.asset.url}
-                className="snap_video lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
-                >
-                </video>
-            </Link>
-
+            <Link href={`/detail/${_id}`}>
+            <video
+              loop
+            // its like doc.querySelector or getElementById and play pause on condition react make it simple
+              ref={videoRef}
+              src={video.asset.url}
+              className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100'
+            ></video>
+          </Link>
             {isHover && (
               <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3'>
                 {/* play  */}
