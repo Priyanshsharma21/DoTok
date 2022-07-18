@@ -8,6 +8,7 @@ import NoResults from '../components/NoResults';
 import type {NextPage} from 'next'
 import ShortVideo from '../components/ShortVideo';
 
+
 interface IProps {
     videos: Video[];
   }
@@ -15,15 +16,10 @@ interface IProps {
 
 const shorts = ({videos} : IProps) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-
-
- 
-
   
-
   return (
     <>
-      <div className='app_shorts '>
+  <div className='app_shorts '>
     <div className="app_video_shorts rounded-lg lg:w-[400px] xl:h-[80vh]  flex gap-4 flex-wrap ">
         {videos.length ? (
             videos.map((video : Video)=>( // video is of type video
@@ -57,3 +53,11 @@ export const getServerSideProps = async({query : {topic}}:{query : {topic:string
   }
   
 export default shorts
+
+
+
+
+
+
+
+

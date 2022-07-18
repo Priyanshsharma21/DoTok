@@ -163,16 +163,16 @@ const Navbar = () => {
       </div>
       </Link>
       {/* search  */}
-      <div className='relative hidden md:block'>
+      <div className='relative hidden md:block '>
         <form
         onSubmit={handleSubmit}
-        className='absolute md:static top-10 -left-20 bg-white'
+        className='absolute md:static dark:bg-slate-800 top-10 -left-20 bg-white'
         >
           <input type="text"
           value={searchValue}
           placeholder='Search for videos & accounts'
           onChange={(e)=>setSearchValue(e.target.value)}
-          className='bg-primary p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[300px] md:w-[350px] rounded-full  md:top-0'
+          className='bg-primary p-3 md:text-md font-medium border-2 dark:text-slate-400 dark:bg-slate-800 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[300px] md:w-[350px] rounded-full  md:top-0'
            
           />
           <motion.button
@@ -196,8 +196,8 @@ const Navbar = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }} 
               className='border-2 px-2 md:px-4 text:md font-semibold flex items-center gap-2'>
-                  <IoMdAdd className='text-xl'/>{ ' ' }
-                  <span className='hidden md:block'>Upload</span>
+                  <IoMdAdd className='text-xl  dark:text-slate-400'/>{ ' ' }
+                  <span className='hidden md:block  dark:text-slate-400'>Upload</span>
               </motion.button>
             </Link>
 
@@ -223,7 +223,7 @@ const Navbar = () => {
                 googleLogout();
                 removeUser();
               }}>
-              <AiOutlineLogout color='red' fontSize={21}/>
+              <AiOutlineLogout  color='red' fontSize={21}/>
             </motion.button>
           </div>
         ) : (

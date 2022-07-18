@@ -40,7 +40,7 @@ const Profile = ({ data }: IProps) => {
     transition={{ duration: 1 }}
     >
       <div className='w-full'>
-    <div className='flex gap-6 md:gap-10 mb-4 bg-white w-full'>
+    <div className='flex gap-6 md:gap-10 mb-4 dark:bg-slate-800 bg-white w-full'>
       <div className='w-16 h-16 md:w-32 md:h-32'>
         {/* user profile section  */}
         <Image
@@ -54,20 +54,20 @@ const Profile = ({ data }: IProps) => {
       </div>
 
       <div>
-        <div className='text-md md:text-2xl font-bold tracking-wider flex gap-2 items-center justify-center lowercase'>
+        <div className='text-md  md:text-2xl text-slate-200 font-bold tracking-wider flex gap-2 items-center justify-center lowercase'>
           <span>{user.userName.replace(/\s+/g, '')} </span>
-          <GoVerified className='text-blue-400 md:text-xl text-md' />
+          <GoVerified className='text-blue-400  md:text-xl text-md' />
         </div>
-        <p className='text-sm font-medium'> {user.userName}</p>
+        <p className='text-sm font-medium text-slate-400'> {user.userName}</p>
       </div>
     </div>
     <div>
       {/* liked and video buttons  */}
-      <div className='flex gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white w-full'>
-        <p className={`text-xl font-semibold cursor-pointer ${videos} mt-2`} onClick={() => setShowUserVideos(true)}>
+      <div className='flex dark:bg-slate-800 gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white w-full'>
+        <p className={`text-xl font-semibold text-white cursor-pointer ${videos} mt-2`} onClick={() => setShowUserVideos(true)}>
           Videos
         </p>
-        <p className={`text-xl font-semibold cursor-pointer ${liked} mt-2`} onClick={() => setShowUserVideos(false)}>
+        <p className={`text-xl font-semibold text-white cursor-pointer ${liked} mt-2`} onClick={() => setShowUserVideos(false)}>
           Liked
         </p>
       </div>

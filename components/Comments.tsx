@@ -28,15 +28,15 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
   const { allUsers, userProfile }: any = useAuthStore();
 
   return (
-    <div className='border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]'>
-      <div className='overflow-scroll lg:h-[457px]'>
+    <div className='border-t-2 dark:bg-slate-400 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]'>
+      <div className='overflow-scroll  lg:h-[457px]'>
         {comments?.length > 0 ? ( // if comment exist
           comments?.map((item: IComment, idx: number) => (//map to all the user and check if userId == postedById
             <>
               {allUsers?.map(
                 (user: IUser) =>
                   user._id === (item.postedBy._ref || item.postedBy._id) && (
-                    <div className=' p-2 items-center' key={idx}>
+                    <div className=' p-2 items-center dark:bg-slate-300 rounded-xl m-2' key={idx}>
                       {/* user info who commented */}
                       <Link href={`/profile/${user._id}`}>
                         <div className='flex items-start gap-3'>
@@ -53,7 +53,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
 
                           <p className='flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary'>
                             {user.userName}{' '}
-                            <GoVerified className='text-blue-400' />
+                            <GoVerified className='text-blue-500' />
                           </p>
                         </div>
                       </Link>
@@ -78,13 +78,13 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
           <input
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            className='bg-primary px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg'
+            className='bg-primary dark:bg-slate-400 px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg'
             placeholder='Add comment..'
           />
           <motion.button  
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} 
-          className='text-md text-gray-400 ' 
+          className='text-md text-gray-100 ' 
           onClick={addComment}>
             {isPostingComment ? 'Commenting...' : 'Comment'}
           </motion.button>

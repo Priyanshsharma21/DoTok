@@ -15,7 +15,7 @@ interface IProps {
 const Home = ({videos} : IProps) => { // this video is of type video[array]
 
   return (
-    <div className='flex flex-col gap-10 videos h-full'>
+    <div className='flex  flex-col gap-10 videos h-full'>
       {videos.length ? (
         videos.map((video : Video)=>( // video is of type video
             <VideoCard post={video} key={video._id} />

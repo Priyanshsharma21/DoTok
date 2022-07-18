@@ -86,14 +86,14 @@ const Upload = () => {
   
 
   return (
-    <div className='flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center'>
-        <div className=' bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6'>
+    <div className='flex w-full h-full dark:bg-slate-800 absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center'>
+        <div className=' bg-white dark:bg-slate-700 rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6'>
             <div>
                 <div>
-                    <p className='text-2xl font-bold'>Upload Video</p>
-                    <p className='text-md text-gray-400'>Upload Video</p>
+                    <p className='text-2xl font-bold dark:text-white'>Upload Video</p>
+                    <p className='text-md text-gray-400 dark:text-slate-400'>Upload Video</p>
                 </div>
-                <div className=' border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100'>
+                <div className=' border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:dark:bg-slate-600  hover:bg-gray-100'>
                     {isLoading ? (
                         <p className='text-center text-3xl text-red-400 font-semibold'>
                             <Spinner2 message='Uploading...' />
@@ -108,11 +108,11 @@ const Upload = () => {
                                         <p className='font-bold text-xl'>
                                             <FaCloudUploadAlt className='text-gray-300 text-6xl'/>
                                         </p>
-                                        <p className='text-xl font-semibold'>
+                                        <p className='text-xl font-semibold dark:text-slate-400'>
                                             Upload Video
                                         </p>
                                     </div>
-                                    <p className='text-gray-400 text-center mt-10 text-sm leading-10'>
+                                    <p className='text-gray-400 text-center dark:text-slate-400 mt-10 text-sm leading-10'>
                                         MP4 or WebM or ogg <br />
                                         720×1280 or higher <br />
                                         Up to 10 min <br />
@@ -162,7 +162,7 @@ const Upload = () => {
 
                 {/* form part  */}
                 <div className="flex flex-col gap-3 pb-10">
-                    <label className='text-md font-medium'>Caption</label>
+                    <label className='text-md font-medium dark:text-slate-200'>Caption</label>
                     <input 
                     type="text"
                     value={caption}
@@ -171,7 +171,7 @@ const Upload = () => {
                     />
 
                     {/* category  */}
-                    <label className='text-md font-medium '>Choose a topic</label>
+                    <label className='text-md font-medium dark:text-slate-200'>Choose a topic</label>
                     
                     <select
                     onChange={(e)=>{setTopic(e.target.value)}}
@@ -192,7 +192,7 @@ const Upload = () => {
                         <button
                             type='button'
                             onClick={handleDiscard}
-                            className="border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+                            className="border-gray-300 border-2 dark:text-slate-400 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
                             >
                             Discard
                         </button>

@@ -13,6 +13,7 @@ import useAuthStore from '../../store/authStore';
 import { Video } from '../../types';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
+import FollowButton from '../../components/FollowButton';
 
 interface IProps {
   postDetails : Video
@@ -28,6 +29,8 @@ const Detail = ({ postDetails } : IProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);// to keep track on 
   const router = useRouter();
   const {userProfile} : any = useAuthStore(); // to track if user logged in or not
+
+  console.log(post)
 
   if(!post) return null;
 
@@ -51,7 +54,7 @@ const Detail = ({ postDetails } : IProps) => {
   }, [post, isVideoMuted]); // if we go to different video then it will not reflect on it
 
 
-  // like dislike 
+  // like like 
   const handleLike = async (like: boolean) => {
     if (userProfile) {
       // const res = await axios.put(`http://localhost:3000/api/like`, {
@@ -61,6 +64,19 @@ const Detail = ({ postDetails } : IProps) => {
         like
       });
       setPost({ ...post, likes: res.data.likes }); // previous value, value we want t o update
+    }
+  };
+
+  // Follow unfollow 
+  const handleFollow = async (follow: boolean) => {
+    if (userProfile) {
+      // const res = await axios.put(`http://localhost:3000/api/follow`, {
+        const res = await axios.put(`https://do-tok-app.vercel.app/api/follow`, {
+        userId: userProfile._id,
+        postId: post._id,
+        follow
+      });
+      setPost({ ...post, follows: res.data.follows }); // previous value, value we want t o update
     }
   };
 
@@ -122,7 +138,7 @@ const Detail = ({ postDetails } : IProps) => {
               </div>
 
               <div  className='absolute bottom-5 lg:bottom-10 right-5 lg:right-10  cursor-pointer'>
-                  {isVideoMuted ? (
+                  {!isVideoMuted ? (
                       <button onClick={() => setIsVideoMuted(false)}>
                         <HiVolumeOff className='text-white text-3xl lg:text-4xl' />
                       </button>
@@ -135,11 +151,11 @@ const Detail = ({ postDetails } : IProps) => {
           </div>
 
           {/* right side  */}
-          <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
+          <div className='relative w-[1000px] dark:bg-slate-600 md:w-[900px] lg:w-[700px]'>
             <div className='lg:mt-20 mt-10'>
               {/* our id part  */}
             <Link href={`/profile/${post.postedBy._id}`}>
-                <div className='flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer'>
+                <div className='flex gap-4 mb-4 dark:bg-slate-600 bg-white w-full pl-10 cursor-pointer'>
                   <Image
                     width={60}
                     height={60}
@@ -148,30 +164,44 @@ const Detail = ({ postDetails } : IProps) => {
                     src={post.postedBy.image}
                   />
                   <div>
-                    <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
+                    <div className='text-xl text-slate-100  font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
                       {post.postedBy.userName.replace(/\s+/g, '')}{' '}
                       <GoVerified className='text-blue-400 text-xl' />
                     </div>
-                    <p className='text-md'> {post.postedBy.userName}</p>
+                    <p className='text-md text-slate-200'> {post.postedBy.userName}</p>
                   </div>
                 </div>
               </Link>
               {/* caption  */}
               <div className='px-10'>
-                <p className='text-md text-gray-600'>{post.caption}</p>
+                <p className='text-md  text-slate-200'>{post.caption}</p>
               </div>
 
-              {/* like button  */}
-              <div className='mt-10 px-10'>
-                {/* if we are loggedIn then only we can like  */}
-                {userProfile && (
-                  <LikeButton 
-                  likes={post.likes}
-                  flex='flex'
-                  handleLike={() => handleLike(true)}
-                  handleDislike={() => handleLike(false)}
-                  />
-                )}
+              <div className='flex flex-row'>
+                    {/* like button  */}
+                  <div className='mt-10 px-10'>
+                    {/* if we are loggedIn then only we can like  */}
+                    {userProfile && (
+                      <LikeButton 
+                      likes={post.likes}
+                      flex='flex'
+                      handleLike={() => handleLike(true)}
+                      handleDislike={() => handleLike(false)}
+                      />
+                    )}
+                  </div>
+                  {/* follow  */}
+                  <div className='mt-10 px-10'>
+                    {/* if we are loggedIn then only we can like  */}
+                    {userProfile && (
+                      <FollowButton 
+                      follows={post.follows}
+                      flex='flex'
+                      handleFollow={() => handleFollow(true)}
+                      handleUnfollow={() => handleFollow(false)}
+                      />
+                    )}
+                  </div>
               </div>
               {/* comment  */}
               <Comments

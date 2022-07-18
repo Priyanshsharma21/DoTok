@@ -5,13 +5,13 @@ import { client } from '../../utils/client';
 
 export default async function handler(req: NextApiRequest,res: NextApiResponse) {
   if (req.method === 'PUT') {
-    const { userId, postId, like } = req.body;
+    const { userId, postId, follow } = req.body;
 
     const data = 
-    like ? await client // only if we like
+    follow ? await client // only if we follow
       .patch(postId)
-      .setIfMissing({ likes: [] }) // fot initial state
-      .insert('after', 'likes[-1]', [// insert at end
+      .setIfMissing({ follows: [] }) // fot initial state
+      .insert('after', 'follows[-1]', [// insert at end
         {
           _key: uuid(),
           _ref: userId,
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
       .commit()
     : await client //else this
       .patch(postId)// only update dont overwrite
-      .unset([`likes[_ref=="${userId}"]`])// unset the likes
+      .unset([`follows[_ref=="${userId}"]`])// unset the follows
       .commit();
 
     res.status(200).json(data);

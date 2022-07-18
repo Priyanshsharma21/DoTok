@@ -48,5 +48,16 @@ export default {
         title: 'Topic',
         type: 'string',
       },
+      {
+        name: 'follows',
+        title: 'Follows',
+        type: 'array',
+        of: [
+          {
+            type: 'reference',
+            to: [{ type: 'user' }],
+          },
+        ],
+      },
     ],
   };

@@ -8,10 +8,10 @@ interface IProps {
 const NoResults = ({ text }: IProps) => {
   return (
     <div className='flex flex-col justify-center items-center h-full w-full'>
-      <p className='text-8xl'>
+      <p className='text-8xl text-pink-500'>
         <MdOutlineVideocamOff />
       </p>
-      <p className='text-2xl text-center'>{text}</p>
+      <p className='text-2xl text-center text-white'>{text}</p>
     </div>
   );
 };

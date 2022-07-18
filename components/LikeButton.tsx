@@ -46,7 +46,7 @@ const LikeButton: NextPage<IProps> = ({ likes, flex, handleLike, handleDislike }
             // </motion.div>
           
           )}
-          <p className='text-md font-semibold '>{likes?.length || 0}</p>
+          <p className={`text-md font-semibold mt-2 ${alreadyLiked ? 'text-[#ffffff]' :' text-black' }`}>{likes?.length || 0}</p>
         </div>
         </motion.button>
     </div>

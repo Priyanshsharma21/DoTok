@@ -68,20 +68,20 @@ const VideoCard:NextPage<IProps> = ({post}) => {
         {/* username  */}
         <Link href={`/profile/${postedBy?._id}`}>
                   <div className='flex items-center gap-2'>
-                    <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
+                    <p className='flex gap-2 dark:text-slate-200 items-center md:text-md font-bold text-primary'>
                         {post.postedBy.userName}
                     {' '}
                     <GoVerified
                     className='text-blue-400 text-md'
                     />
                   </p>
-                  <p className='capitalize font-medium text-xs text-gray-500 hidden md:block'>{post.postedBy.userName}</p>  
+                  <p className='capitalize dark:text-slate-200 font-medium text-xs text-gray-500 hidden md:block'>{post.postedBy.userName}</p>  
               </div>
           </Link>
 
           {/* caption  */}
       <Link href={`/detail/${_id}`}>
-        <p className='mt-2 font-normal'>{caption}</p>
+        <p className='mt-2 font-normal dark:text-slate-100'>{caption}</p>
       </Link>
             </div>
         </div>
@@ -99,7 +99,7 @@ const VideoCard:NextPage<IProps> = ({post}) => {
             // its like doc.querySelector or getElementById and play pause on condition react make it simple
               ref={videoRef}
               src={video.asset.url}
-              className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100'
+              className='lg:w-[600px] bg-gradient-to-b from-slate-700 to-slate-800 hover:dark:bg-slate-800 h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100'
             ></video>
           </Link>
             {isHover && (
@@ -110,14 +110,14 @@ const VideoCard:NextPage<IProps> = ({post}) => {
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }} 
                   onClick={onVideoPress}>
-                    <BsFillPauseFill className='text-black text-2xl lg:text-4xl sm:text-white lg:text-black md:text-white'/>
+                    <BsFillPauseFill className='text-white text-2xl lg:text-4xl sm:text-white lg:text-white md:text-white'/>
                   </motion.button>
                 ) : (
                   <motion.button
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }} 
                   onClick={onVideoPress}>
-                    <BsFillPlayFill className='text-black text-2xl lg:text-4xl sm:text-white lg:text-black md:text-white' />
+                    <BsFillPlayFill className='text-white text-2xl lg:text-4xl sm:text-white lg:text-white md:text-white' />
                   </motion.button>
                 )}
 
@@ -128,14 +128,14 @@ const VideoCard:NextPage<IProps> = ({post}) => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }} 
                   onClick={()=>setIsVideoMuted(false)}>
-                    <HiVolumeOff className='text-black text-2xl lg:text-4xl' />
+                    <HiVolumeOff className='text-white text-2xl lg:text-4xl' />
                   </motion.button>
                 ) : (
                   <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }} 
                   onClick={()=>setIsVideoMuted(true)}>
-                    <HiVolumeUp className='text-black text-2xl lg:text-4xl' />
+                    <HiVolumeUp className='text-white text-2xl lg:text-4xl' />
                   </motion.button>
                 )}
               </div>

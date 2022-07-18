@@ -10,6 +10,9 @@ import disc from '../utils/disc.png'
 import { Video } from './../types';
 import ShortsSidebar from './ShortsSidebar';
 import {motion} from 'framer-motion'
+import { MdFavorite, MdFavoriteBorder, MdLink } from 'react-icons/md';
+import {RiUserFollowLine,RiUserUnfollowLine} from 'react-icons/ri'
+
 
 interface IProps {
   post : Video;
@@ -23,6 +26,8 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null); // our video is type HTMLVideoElement
   // ref will take referance of play and pause part of our video
+  const [liked,setLiked] = useState(false)
+  const [follow,setFollow] = useState(false);
   
   const onVideoPress = ()=>{
     if(playing){
@@ -57,21 +62,21 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
               ref={videoRef} // its like doc.querySelector or getElementById and play pause on condition react make it simple
               loop
               src={video.asset.url}
-              className="short_video_player snap_video lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
+              className="short_video_player bg-gradient-to-b from-slate-700 to-slate-800 snap_video lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
                >
               </video>
             </Link>
 
             {isHover && (
-              <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[80px] md:w-[70px] lg:w-[350px] p-3'>
+              <div className='absolute top-1 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[80px] md:w-[90px] lg:w-[350px] p-3'>
                 {/* play  */}
                 {playing ? (
                   <button onClick={onVideoPress}>
-                    <BsFillPauseFill className=' text-2xl lg:text-4xl text-white'/>
+                    <BsFillPauseFill className=' text-xl lg:text-4xl sm-text-2xl text-white'/>
                   </button>
                 ) : (
                   <button onClick={onVideoPress}>
-                    <BsFillPlayFill className=' text-2xl lg:text-4xl text-white' />
+                    <BsFillPlayFill className=' text-xl lg:text-4xl sm-text-2xl text-white' />
                   </button>
                 )}
 
@@ -79,11 +84,11 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
 
                 {isVideoMuted ? (
                   <button onClick={()=>setIsVideoMuted(false)}>
-                    <HiVolumeOff className='text-white text-2xl lg:text-4xl' />
+                    <HiVolumeOff className='text-white text-xl sm-text-2xl lg:text-4xl' />
                   </button>
                 ) : (
                   <button onClick={()=>setIsVideoMuted(true)}>
-                    <HiVolumeUp className='text-white text-2xl lg:text-4xl' />
+                    <HiVolumeUp className='text-white text-xl sm-text-2xl lg:text-4xl' />
                   </button>
                 )}
               </div>
@@ -113,7 +118,7 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
         {/* username  */}
         <Link href={`/profile/${postedBy?._id}`}>
                   <div className='flex items-center gap-2 justify-between'>
-                    <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
+                    <p className='flex gap-2 items-center dark:text-slate-200 md:text-md font-bold text-primary'>
                         {post.postedBy.userName}
                     {' '}
                     <GoVerified
@@ -127,19 +132,20 @@ const ShortVideo:NextPage<IProps> = ({post}) => {
 
           {/* caption  */}
       <Link href={`/detail/${_id}`}>
-        <p className='mt-2 font-normal'>{caption}</p>
+        <p className='mt-2 font-normal dark:text-slate-100'>{caption}</p>
       </Link>
 
             </div>
-      <BsDiscFill className='videoFooter_record text-4xl absolute right-2'/>
+      <BsDiscFill className='videoFooter_record text-4xl text-blue-400 absolute right-2'/>
 
         </div>
       </div>
         
       </div>
       <div>
-            <ShortsSidebar />
+          
         </div>
+      
     </div>
     </motion.div>
   )

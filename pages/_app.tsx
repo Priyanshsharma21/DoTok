@@ -4,7 +4,6 @@ import {useState, useEffect} from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import LoadingBar from 'react-top-loading-bar'
 
 const MyApp = ({ Component, pageProps }: AppProps)=> {
   const [progress,setProgress] = useState(0)
@@ -23,13 +22,10 @@ const MyApp = ({ Component, pageProps }: AppProps)=> {
 
   return (
     
-    <GoogleOAuthProvider clientId={`117770236294-t55socfh5e5sch0b4bostm8crjvfpmd3.apps.googleusercontent.com`}>
-      <div className='xl:w-[1200px] m-auto overflow-hidden h-[100vh]'>
+  <div className="dark:bg-slate-800">
+      <GoogleOAuthProvider clientId={`117770236294-t55socfh5e5sch0b4bostm8crjvfpmd3.apps.googleusercontent.com`}>
+      <div className='xl:w-[1200px] dark:bg-slate-800  m-auto overflow-hidden h-[100vh]'>
       <Navbar /> 
-      <LoadingBar
-        color='red'
-        progress={progress}
-      />
       <div className="flex gap-6 md:gap-20">
         <div className='h-[92vh] overflow-hidden xl:hover:overflow-auto'>
           <Sidebar />
@@ -40,7 +36,19 @@ const MyApp = ({ Component, pageProps }: AppProps)=> {
       </div>
       </div>
     </GoogleOAuthProvider>
+  </div>
   )
 }
 
 export default MyApp
+
+
+
+
+
+
+
+
+
+
+
