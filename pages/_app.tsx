@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Head from 'next/head';
 
 const MyApp = ({ Component, pageProps }: AppProps)=> {
   const [progress,setProgress] = useState(0)
@@ -23,6 +24,9 @@ const MyApp = ({ Component, pageProps }: AppProps)=> {
   return (
     
   <div className="dark:bg-slate-800">
+      <Head>
+        <title>DoTok</title>
+      </Head>
       <GoogleOAuthProvider clientId={`117770236294-t55socfh5e5sch0b4bostm8crjvfpmd3.apps.googleusercontent.com`}>
       <div className='xl:w-[1200px] dark:bg-slate-800  m-auto overflow-hidden h-[100vh]'>
       <Navbar /> 

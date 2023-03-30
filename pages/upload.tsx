@@ -70,8 +70,8 @@ const Upload = () => {
                 },
                 topic,
             }
-            // await axios.post(`http://localhost:3000/api/post`, document)
-            await axios.post(`https://do-tok-app.vercel.app/api/post`, document)
+            await axios.post(`http://localhost:3000/api/post`, document)
+            // await axios.post(`https://do-tok-app.vercel.app/api/post`, document)
             
             router.push('/')
         }

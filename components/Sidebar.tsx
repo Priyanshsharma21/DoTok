@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   const userProfile = false
 
-  const activeLink = 'flex items-center gap-3 hover:dark:bg-slate-600   p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded';
+  const activeLink = 'flex items-center gap-3 hover:dark:bg-slate-600   p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#75f519] rounded';
 
   const normalLink = 'flex items-center dark:text-white  gap-3 hover:dark:bg-slate-600 hover:dark:text-white  p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded';
 

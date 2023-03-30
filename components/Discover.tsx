@@ -10,7 +10,7 @@ const Discover = () => {
   const router = useRouter();
   const { topic } = router.query; // get query from url
 
-  const activeTopicStyle = 'xl:border-2 hover:dark:bg-slate-600  xl:border-[#F51997] px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-[#F51997]';
+  const activeTopicStyle = 'xl:border-2 hover:dark:bg-slate-600  xl:border-[#75f519] px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-[#75f519]';
   const topicStyle = 'xl:border-2 hover:dark:bg-slate-600 hover:text-white dark:text-slate-200 xl:border-gray-300 px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black';
 
   return (

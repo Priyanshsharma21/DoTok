@@ -172,7 +172,7 @@ const Navbar = () => {
           value={searchValue}
           placeholder='Search for videos & accounts'
           onChange={(e)=>setSearchValue(e.target.value)}
-          className='bg-primary p-3 md:text-md font-medium border-2 dark:text-slate-400 dark:bg-slate-800 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[300px] md:w-[350px] rounded-full  md:top-0'
+          className='bg-primary text-slate-100 p-3 md:text-md font-medium border-2 dark:text-slate-400 dark:bg-slate-800 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[300px] md:w-[350px] rounded-full  md:top-0'
            
           />
           <motion.button
@@ -223,7 +223,7 @@ const Navbar = () => {
                 googleLogout();
                 removeUser();
               }}>
-              <AiOutlineLogout  color='red' fontSize={21}/>
+              <AiOutlineLogout  color='#75f519' fontSize={21}/>
             </motion.button>
           </div>
         ) : (

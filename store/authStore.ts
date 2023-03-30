@@ -15,8 +15,8 @@ const authStore = (set: any) => ({
 
   //fetching all the users
   fetchAllUsers: async () => {
-    // const response = await axios.get(`http://localhost:3000/api/users`);
-    const response = await axios.get(`https://do-tok-app.vercel.app/api/users`);
+    const response = await axios.get(`http://localhost:3000/api/users`);
+    // const response = await axios.get(`https://do-tok-app.vercel.app/api/users`);
 
     set({ allUsers: response.data });
   },
