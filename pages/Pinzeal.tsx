@@ -26,7 +26,7 @@ const pinzeal = () => {
                 </p>
 
                 <div className="mt-8">
-                <a target="_blank" href="https://pinzeal.netlify.app/"  className="p-3  bg-pink-500 text-white rounded-2xl">Pinzeal</a>
+                <a target="_blank" rel="noreferrer" href="https://pinzeal.netlify.app/"  className="p-3  bg-pink-500 text-white rounded-2xl">Pinzeal</a>
                 </div>
 
         </div>
