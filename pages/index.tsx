@@ -35,11 +35,11 @@ export const getServerSideProps = async({query : {topic}}:{query : {topic:string
 
   let res = null
   if(topic){
-    res = await axios.get(`http://localhost:3000/api/discover/${topic}`)
-    // res = await axios.get(`https://do-tok-app.vercel.app/api/discover/${topic}`)
+    // res = await axios.get(`http://localhost:3000/api/discover/${topic}`)
+    res = await axios.get(`https://do-tok-app.vercel.app/api/discover/${topic}`)
   }else{
-    // res = await axios.get(`https://do-tok-app.vercel.app/api/post`)
-    res = await axios.get(`http://localhost:3000/api/post`)
+    res = await axios.get(`https://do-tok-app.vercel.app/api/post`)
+    // res = await axios.get(`http://localhost:3000/api/post`)
   }
 
     return {

@@ -57,8 +57,8 @@ const Detail = ({ postDetails } : IProps) => {
   // like like 
   const handleLike = async (like: boolean) => {
     if (userProfile) {
-      const res = await axios.put(`http://localhost:3000/api/like`, {
-        // const res = await axios.put(`https://do-tok-app.vercel.app/api/like`, {
+      // const res = await axios.put(`http://localhost:3000/api/like`, {
+        const res = await axios.put(`https://do-tok-app.vercel.app/api/like`, {
         userId: userProfile._id,
         postId: post._id,
         like
@@ -70,8 +70,8 @@ const Detail = ({ postDetails } : IProps) => {
   // Follow unfollow 
   const handleFollow = async (follow: boolean) => {
     if (userProfile) {
-      const res = await axios.put(`http://localhost:3000/api/follow`, {
-        // const res = await axios.put(`https://do-tok-app.vercel.app/api/follow`, {
+      // const res = await axios.put(`http://localhost:3000/api/follow`, {
+        const res = await axios.put(`https://do-tok-app.vercel.app/api/follow`, {
         userId: userProfile._id,
         postId: post._id,
         follow
@@ -88,8 +88,8 @@ const Detail = ({ postDetails } : IProps) => {
     if (userProfile) {
       if (comment) {
         setIsPostingComment(true);
-        const res = await axios.put(`http://localhost:3000/api/post/${post._id}`, {
-          // const res = await axios.put(`https://do-tok-app.vercel.app/api/post/${post._id}`, {
+        // const res = await axios.put(`http://localhost:3000/api/post/${post._id}`, {
+          const res = await axios.put(`https://do-tok-app.vercel.app/api/post/${post._id}`, {
           userId: userProfile._id,
           comment,
         });
